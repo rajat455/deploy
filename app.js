@@ -16,7 +16,6 @@ const io = socketIO(server, {
     origin: "*",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
-    credentials: true,
   },
 });
 const users = [{}];
