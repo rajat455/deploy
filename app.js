@@ -9,15 +9,13 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-
+app.use((req,res,next) => {
+res.setHeader("Access-Control-Allow-Origin", "*")
+next()
+})
 const server = http.createServer(app);
-const io = socketIO(server, {
-  cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
-  },
-});
+const io = socketIO(server);
+
 const users = [{}];
 
 io.on("connection", (socket) => {
