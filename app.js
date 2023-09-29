@@ -7,12 +7,12 @@ const { message } = require('statuses');
 const app = express()
 
 app.use(express.json())
-app.use(cors({origin:"http://localhost:3000"}))
+app.use(cors())
 
 const server = http.createServer(app);
 const io = socketIO(server, {
   cors: {
-    origin: ["*", "http://localhost:3000"],
+    origin: "https://mchate.netlify.app",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true,
