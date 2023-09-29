@@ -9,10 +9,11 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+
 const server = http.createServer(app);
 const io = socketIO(server, {
   cors: {
-    origin: "https://mchate.netlify.app",
+    origin: "*",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true,
