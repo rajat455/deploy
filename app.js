@@ -50,5 +50,6 @@ app.get("/", (req, res) => {
 })
 
 server.listen(5500, () => {
+  console.log("Log successfully Deploy")
   console.log("server started")
 })
