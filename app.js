@@ -19,7 +19,11 @@ app.use((req,res,next) => {
   next()
 })
 const server = http.createServer(app);
-const io = socketIO(server);
+const io = socketIO(server, {
+  cors:{
+    origin:"*"
+  }
+});
 
 const users = [{}];
 
