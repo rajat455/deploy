@@ -10,8 +10,12 @@ app.use(express.json())
 app.use(cors())
 
 app.use((req,res,next) => {
-res.setHeader("Access-Control-Allow-Origin", "*")
-next()
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE")
+  res.header(
+    "Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  )
+  next()
 })
 const server = http.createServer(app);
 const io = socketIO(server);
